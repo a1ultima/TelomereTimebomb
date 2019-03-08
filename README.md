@@ -96,5 +96,27 @@ _______________________________________________________
 |hT3[8]  x  |     |     |     |  x  |     |     |     | qj=3
 |_____|_____|_____|_____|_____|_____|_____|_____|_____|
 
+#
+# pipeline map
+#
 
+phase1: create punnet squares (manually)
+
+manually create the punnet square outputting into .csv format
+
+data out: 
+
+	punnet_collapsed.tsv
+
+phase2: collapseGames_to_collectPunnetGametes.py (R/gameteFreq_to_Punnet.r)
+
+generate equations using sympy
+
+data in: 
+
+	punnet_collapsed.tsv
+
+data out: 
+
+	final_gamete_frequencies.tsv (R/punnet.csv)
 """
