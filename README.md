@@ -100,7 +100,7 @@ _______________________________________________________
 # pipeline map
 #
 
-phase1: create punnet squares (manually)
+phase 1 (Amol):  create punnet squares (manually)
 
 	manually create the punnet square outputting into .csv format
 
@@ -112,7 +112,7 @@ data out:
 
 	derivations/dominant lethal - recessive shortening - todo/Det_eqns_assm_dominant-lethal_recessive-shortening.docx
 
-phase2: (R/gameteFreq_to_Punnet.r)
+phase 2 (Hemat): (R/gameteFreq_to_Punnet.r)
 
 	collapse punnet square
 
@@ -128,7 +128,7 @@ data out:
 
 	punnet_collapsed.tsv
 
-phase3: collapseGames_to_collectPunnetGametes.py 
+phase 3 (Eric): collapseGames_to_collectPunnetGametes.py 
 
 	generate equations using sympy
 
@@ -140,5 +140,14 @@ data out:
 
 	final_gamete_frequencies.tsv (R/punnet.csv)
 
+phase 4 (Vic): use the output of phase 3 to simulate the time evolution of the mosquito population
+
+data in: 
+
+	final_gamete_frequencies.tsv
+
+data out: 
+
+	/plots/*
 
 """
