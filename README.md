@@ -102,15 +102,35 @@ _______________________________________________________
 
 phase1: create punnet squares (manually)
 
-manually create the punnet square outputting into .csv format
+	manually create the punnet square outputting into .csv format
+
+data out:
+
+	derivations/dominant lethal - dominant shortening - done/MW_Det_eqns_310714.docx
+
+	derivations/dominant lethal - recessive shortening - double-check/Det_eqns_assm_dominant-lethal_recessive-shortening.docx
+
+	derivations/dominant lethal - recessive shortening - todo/Det_eqns_assm_dominant-lethal_recessive-shortening.docx
+
+phase2: (R/gameteFreq_to_Punnet.r)
+
+	collapse punnet square
+
+data in:
+
+	derivations/dominant lethal - dominant shortening - done/MW_Det_eqns_310714.docx
+
+	derivations/dominant lethal - recessive shortening - double-check/Det_eqns_assm_dominant-lethal_recessive-shortening.docx
+
+	derivations/dominant lethal - recessive shortening - todo/Det_eqns_assm_dominant-lethal_recessive-shortening.docx
 
 data out: 
 
 	punnet_collapsed.tsv
 
-phase2: collapseGames_to_collectPunnetGametes.py (R/gameteFreq_to_Punnet.r)
+phase3: collapseGames_to_collectPunnetGametes.py 
 
-generate equations using sympy
+	generate equations using sympy
 
 data in: 
 
@@ -119,4 +139,6 @@ data in:
 data out: 
 
 	final_gamete_frequencies.tsv (R/punnet.csv)
+
+
 """
