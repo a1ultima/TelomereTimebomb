@@ -100,7 +100,7 @@ _______________________________________________________
 # pipeline map
 #
 
-phase 1 (Amol):  create punnet squares (manually)
+phase 1 (Vic & Eric):  create punnet squares (manually)
 
 	manually create the punnet square outputting into .csv format
 
@@ -112,7 +112,7 @@ data out:
 
 	derivations/dominant lethal - recessive shortening - todo/Det_eqns_assm_dominant-lethal_recessive-shortening.docx
 
-phase 2 (Hemat): (R/gameteFreq_to_Punnet.r)
+phase 2 (Vic & Eric): (R/gameteFreq_to_Punnet.r)
 
 	collapse punnet square
 
