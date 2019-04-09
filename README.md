@@ -130,7 +130,7 @@ data out:
 
 phase 3 (Eric): collapseGames_to_collectPunnetGametes.py 
 
-	generate equations using sympy
+	generate equations using numpy
 
 data in: 
 
