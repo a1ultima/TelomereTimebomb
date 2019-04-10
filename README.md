@@ -71,7 +71,7 @@ any individual carrying the short-telomere experiances instant death, thus
 removing it, and its alleles, from the species's @gene-pool.
 
 
-@@punnet table / @@gene-pool:
+@@punnet table / @@gene-pool (use a real code editor to see proper formatting, like vim, emacs or ST*):
 
   vvv--- Possible @@gamete genotypes ---vvv
 
