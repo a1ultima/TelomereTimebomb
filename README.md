@@ -114,8 +114,19 @@ data out:
 
 	derivations/dominant lethal - recessive shortening - todo/Det_eqns_assm_dominant-lethal_recessive-shortening.docx
 
+phase 2 (Daniel): collapseGametes_to_collectPunnetGametes.py
 
-phase 2 (Eric): collapseGames_to_collectPunnetGametes.py 
+	collapses the punnet square
+
+data in: 
+
+	./R/punnet.csv
+
+data out: 
+
+	./final_gamete_frequencies.tsv
+
+phase 3 (Eric): collapseGames_to_collectPunnetGametes.py 
 
 	represent equations using numpy/sympy
 
