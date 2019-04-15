@@ -120,11 +120,11 @@ phase 2 (Daniel): collapseGametes_to_collectPunnetGametes.py
 
 data in: 
 
-	./R/punnet.csv
+	Manually create a new csv for the second modelling assumption (refer to ./R/punnet.csv)
 
 data out: 
 
-	./final_gamete_frequencies.tsv
+	Collapsing new punnet tsv from the input (refer to punnet_collapsed.tsv)
 
 phase 3 (Eric): collapseGames_to_collectPunnetGametes.py 
 
@@ -136,7 +136,7 @@ data in:
 
 data out: 
 
-	final_gamete_frequencies.tsv (R/punnet.csv)
+	final_gamete_frequencies.tsv 
 
 phase 3 (Vic): use the output of phase 3 to simulate the time evolution of the mosquito population
 
