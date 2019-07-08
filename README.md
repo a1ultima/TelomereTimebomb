@@ -102,7 +102,7 @@ _______________________________________________________
 
 phase 1 (Vic & Eric):  create punnet squares (manually)
 
-	manually create the punnet square outputting into .csv format
+	manually create the punnet square outputting into .docx format
 
 data out:
 
@@ -128,9 +128,14 @@ data out:
 
 	punnet_collapsed.tsv
 
-phase 3 (Eric): collapseGames_to_collectPunnetGametes.py 
+phase 3 (Eric): Python/collapseGames_to_collectPunnetGametes.py 
 
 	generate equations using numpy
+	- dominant lethal / recessive shortening
+	- dominant lethal / dominant shortening
+	- recessive lethal / recessive shortening
+	- recessive lethal / dominant shortening
+
 
 data in: 
 
