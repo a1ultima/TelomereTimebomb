@@ -112,13 +112,41 @@ data out:
 
 	derivations/dominant lethal - recessive shortening - todo/Det_eqns_assm_dominant-lethal_recessive-shortening.docx
 
-phase 2 (Vic & Eric): @todo: determine what scripts perform collapsing
+phase 2: 
+
+	Assumption point 1. 
+
+		punnet_assm_dominant-lethal_dominant-shortning_compact.py @DONE @ANDY
+	
+	Assumption point 2. 
+	
+		punnet_assm_dominant-lethal_recessive-shortning_compact.py @TODO @ERIC
+	
+	Assumption point 3. 
+
+		punnet_assm_recessive-lethal_dominant-shortning_compact.py @TODO @VIC
+	
+	Assumption point 4.
+	
+		punnet_assm_recessive-lethal_recessive-shortning_compact.py @TODO @AMOL/@HEMAT
+
+	create machine readable punnet (as .csv)
+
+data in: 
+
+	@todo: determine what the inputs are for the collapsing script
+
+data out: 
+
+	punnet.csv
+
+phase 3 (Vic & Eric): @todo: determine what scripts perform collapsing
 
 	collapse punnet square
 
 data in: 
 
-@todo: determine what the inputs are for the collapsing script
+	@todo: determine what the inputs are for the collapsing script
 
 
 data out: 
@@ -134,7 +162,6 @@ phase 3 (Eric): Python/collapseGames_to_collectPunnetGametes.py
 	- dominant lethal / dominant shortening
 	- recessive lethal / recessive shortening
 	- recessive lethal / dominant shortening
-
 
 data in: 
 

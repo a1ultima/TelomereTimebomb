@@ -140,9 +140,15 @@ def collapse_punnet(caseX,list_or_array):
     #
     #
 
+    print("Caste is: "+str(caseX))
+
     for j,row in enumerate(caseX): # each row has multiple columns, each of which represent independent matings, e.g. ['hT3=q3q1/2 \n hT1=q3q1/2', 'hT3=q3q2/2 \n hT2=q3q2/2', 'hT3=q3q3/2 \n hT3=q3q3/2']
 
+        print("Row is :"+str(j))
+
         for i,col in enumerate(row): # each col has all the gamete frequencies ultimately resulting from a single mating, e.g. hT3=q3q1 \n hT1=q3q1/2
+
+            print("Column is: "+str(i))
 
             g_collapsed = {}
 
@@ -155,6 +161,10 @@ def collapse_punnet(caseX,list_or_array):
 
             # split the gametes by hT1 and q1q1/2
             for gamete in gametes: # e.g. gamete = hT1=q1q1/2 
+
+                # if not ("=" in gamete):
+                #     print("Row number: "+str(j)+" and column number: "+ str(i) + " are causing this mess...!")
+                #     pdb.set_trace() # @latest
 
                 g,f = gamete.split("=")     # e.g. g = hT1, f = q1q1/2
 
@@ -282,26 +292,45 @@ def replace_punnet_with_collapsed_cases(punnet,map_caseX_to_punnet,caseX_collaps
 # Read .csv file representing the punett
 #
 reader      = csv.reader(open("../R/punnet.csv","rb"),delimiter=",")
-x           = list(reader)
-result      = np.array(x)
-result_copy = copy(result)
+#                          ^create a python file object
+#               ^call the csv lib and run the reader() method, which        
 
+
+data        = list(reader)
+result      = np.array(data)
+result_copy = copy(result)
 
 #
 # Specify indices of each case      @@settings: user settings must match between this and the ones specified in ../R/gameteFrequencies_to_punnet.r
 #                j1,2,i1,2
 case1a_indices = [2,4,6,8] # Case1a: (hTi)&(HTj): wild-type sperm (hTi) meets mutant egg (HTj)
+#              y0, y1, x0, x1
 case1b_indices = [6,8,2,4] # Case1b: (HTi)&(hTj): mutant sperm (HTi) meets wild-type egg (hTj)
 case2_indices  = [2,4,2,4] # Case2:  (HTi)&(HTj): mutant sperm (HTi) meets mutant egg (HTj)
 case3_indices  = [6,8,6,8] # Case3:  (hTi)&(hTj): wild-type sperm (hTi) meets wild-type egg (hTj)
 case4_indices  = get_caseX_indices_matching_symbol_list(result,match_symbols = ["NA"]) # indices of @result (@punnet-table) elements dead due to T0, T0->Death
+
+
+
 #
 # Separate the @cases (@caseX)
-# 
+#                     
 case1a = result[case1a_indices[0]:case1a_indices[1]+1,case1a_indices[2]:case1a_indices[3]+1] 
+
+import pprint
+pprint.pprint(case1a)
+pdb.set_trace()
+
+# e.g. slice a rectangle from ^ to  ^ (y, row)       , and from ^      to ^ (x, column) 
+#  ...                        2 to  4
 case1b = result[case1b_indices[0]:case1b_indices[1]+1,case1b_indices[2]:case1b_indices[3]+1]
 case2  = result[case2_indices[0]:case2_indices[1]+1,  case2_indices[2]:case2_indices[3]+1  ]
 case3  = result[case3_indices[0]:case3_indices[1]+1,  case3_indices[2]:case3_indices[3]+1  ]
+
+
+
+
+
 #
 # Coordinates of elements in caseX matching to result (@punnet table)
 #
