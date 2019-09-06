@@ -97,7 +97,60 @@ _______________________________________________________
 |_____|_____|_____|_____|_____|_____|_____|_____|_____|
 
 #
-# pipeline map
+# pipeline map 
+#
+
+phase 1 (Vic & Eric):  create punnet squares (manually), adn generate a set of equations for phase 2
+
+note: there is an odf equivalent of derivations/dominant lethal - recessive shortening - todo/Det_eqns_assm_dominant-lethal_recessive-shortening.docx
+
+	manually create the punnet square outputting into .csv format
+
+data out:
+
+	derivations/dominant lethal - dominant shortening - done/MW_Det_eqns_310714.docx
+
+	derivations/dominant lethal - recessive shortening - double-check/Det_eqns_assm_dominant-lethal_recessive-shortening.docx
+
+	derivations/dominant lethal - recessive shortening - todo/Det_eqns_assm_dominant-lethal_recessive-shortening.docx
+
+phase 2 (Daniel): collapseGametes_to_collectPunnetGametes.py
+
+	collapses the punnet square
+
+data in: 
+
+	Manually create a new csv for the second modelling assumption (refer to ./R/punnet.csv)
+
+data out: 
+
+	Collapsing new punnet tsv from the input (refer to punnet_collapsed.tsv)
+
+phase 3 (Eric): collapseGames_to_collectPunnetGametes.py 
+
+	represent equations using numpy/sympy
+
+data in: 
+
+	punnet_collapsed.tsv
+
+data out: 
+
+	final_gamete_frequencies.tsv 
+
+phase 3 (Vic): use the output of phase 3 to simulate the time evolution of the mosquito population
+
+data in: 
+
+	final_gamete_frequencies.tsv
+
+data out: 
+
+	/plots/*
+
+
+#
+# pipeline map (old (r))
 #
 
 phase 1 (Vic & Eric):  create punnet squares (manually)
@@ -114,7 +167,13 @@ data out:
 
 phase 2 (Vic & Eric): @todo: determine what scripts perform collapsing
 
-	collapse punnet square
+	@2019-04-09 : it turns out the description for phase 2 is deprecated OR the input data is incorrect // old: collapse punnet square
+
+	@todo: urgent testing hypothesis 1 the LHS of OR:
+		@H1 
+
+	@todo: urgent testing hypothesis 2 on the RHS of OR: 
+		@H2 
 
 data in: 
 
@@ -154,6 +213,8 @@ data out:
 
 	/plots/*
 
+# @H1
+
 
 phase 5: (R/gameteFreq_to_Punnet.r)
 
@@ -167,4 +228,5 @@ data out:
 
 	/plots/*
 
+# Master
 """
