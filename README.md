@@ -71,7 +71,7 @@ any individual carrying the short-telomere experiances instant death, thus
 removing it, and its alleles, from the species's @gene-pool.
 
 
-@@punnet table / @@gene-pool:
+@@punnet table / @@gene-pool (use a real code editor to see proper formatting, like vim, emacs or ST*):
 
   vvv--- Possible @@gamete genotypes ---vvv
 
@@ -155,7 +155,7 @@ data out:
 
 phase 1 (Vic & Eric):  create punnet squares (manually)
 
-	manually create the punnet square outputting into .csv format
+	manually create the punnet square outputting into .docx format
 
 data out:
 
@@ -165,7 +165,7 @@ data out:
 
 	derivations/dominant lethal - recessive shortening - todo/Det_eqns_assm_dominant-lethal_recessive-shortening.docx
 
-phase 2 (Vic & Eric): (R/gameteFreq_to_Punnet.r)
+phase 2 (Vic & Eric): @todo: determine what scripts perform collapsing
 
 	@2019-04-09 : it turns out the description for phase 2 is deprecated OR the input data is incorrect // old: collapse punnet square
 
@@ -175,29 +175,33 @@ phase 2 (Vic & Eric): (R/gameteFreq_to_Punnet.r)
 	@todo: urgent testing hypothesis 2 on the RHS of OR: 
 		@H2 
 
-data in:
+data in: 
 
-	derivations/dominant lethal - dominant shortening - done/MW_Det_eqns_310714.docx
+@todo: determine what the inputs are for the collapsing script
 
-	derivations/dominant lethal - recessive shortening - double-check/Det_eqns_assm_dominant-lethal_recessive-shortening.docx
-
-	derivations/dominant lethal - recessive shortening - todo/Det_eqns_assm_dominant-lethal_recessive-shortening.docx
 
 data out: 
 
 	punnet_collapsed.tsv
 
-phase 3 (Eric): collapseGames_to_collectPunnetGametes.py 
+
+
+phase 3 (Eric): Python/collapseGames_to_collectPunnetGametes.py 
 
 	generate equations using numpy
+	- dominant lethal / recessive shortening
+	- dominant lethal / dominant shortening
+	- recessive lethal / recessive shortening
+	- recessive lethal / dominant shortening
+
 
 data in: 
 
-	punnet_collapsed.tsv
+	punnet.csv
 
 data out: 
 
-	final_gamete_frequencies.tsv (R/punnet.csv)
+	punnet_collapsed.tsv
 
 phase 4 (Vic): use the output of phase 3 to simulate the time evolution of the mosquito population
 
@@ -206,6 +210,19 @@ data in:
 	final_gamete_frequencies.tsv
 
 data out: 
+
+	/plots/*
+
+
+phase 5: (R/gameteFreq_to_Punnet.r)
+
+	producing plots from mathmatical equations
+
+data in: 
+
+	punnet_collapsed.tsv (large matrix of numpy)
+
+data out:
 
 	/plots/*
 
