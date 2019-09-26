@@ -4,6 +4,19 @@
 # Readme #
 ##########
 
+#############################
+# Team Allocation (Authors) #
+#############################
+
+# @H1 - Vic Chang - https://www.linkedin.com/in/vic-chang-9a7600176/
+
+# @H2 - Eric Tam - https://www.linkedin.com/in/chon-teng-tam-2b4667166/
+
+# @H3 - Amol Dhaliwal - @TODO
+#     & Hemat Sanaie -  @TODO
+
+
+
 """ README_v2015-05-01:
 
 @@Cases 1-3 are statistically independent sequences of life-cycle events, 
