@@ -235,3 +235,5 @@ data out:
 
 # Master
 """
+
+##2019-10-21 : Python code 'punnet_to_collpaseGametes.py' can be found in (TelomereTimebomb/Python/punnet_to_collpaseGametes.py)##
