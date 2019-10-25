@@ -78,7 +78,7 @@
     _______________________________________________________
     |[0/0]| HT0 | HT1 | HT2 | HT3 | hT0 | hT1 | hT2 | hT3 | 
     |_____|_[1]_|_[2]_|_[3]_|_[4]_|_[5]_|_[6]_|_[7]_|_[8]_| 
-    |HT0[1]  x  |  4a |  4a |  4a |  4a |  4a |  4a |  x  | pj=0  <-- Case4a
+    |HT0[1]  x  |  4  |  4  |  4  |  4  |  4  |  4  |  x  | pj=0  <-- Case4 
     |_____|_____|_____|_____|_____|_____|_____|_____|_____|
     |HT1[2]  x  |     |     |     |  x  |     |     |     | pj=1
     |_____|_____|_____|_____|_____|_____|_____|_____|_____|
@@ -86,7 +86,7 @@
     |_____|_____|_____|_____|_____|_____|_____|_____|_____|
     |HT3[4]  x  |     |     |     |  x  |     |     |     | pj=3
     |_____|_____|_____|_____|_____|_____|_____|_____|_____|
-    |hT0[5]  x  |  4b |  4b |  4b |  4b |  4b |  4b |  4b | qj=0  <-- Case4b 
+    |hT0[5]  x  |  4  |  4  |  4  |  4  |  4  |  4  |  4  | qj=0  <-- Case4  
     |_____|_____|_____|_____|_____|_____|_____|_____|_____|
     |hT1[6]  x  |     |     |     |  x  |     |     |     | qj=1
     |_____|_____|_____|_____|_____|_____|_____|_____|_____|
@@ -95,7 +95,7 @@
     |hT3[8]  x  |     |     |     |  x  |     |     |     | qj=3
     |_____|_____|_____|_____|_____|_____|_____|_____|_____|
 
-            ^Case4a
+            ^Case4 
 
     ^ An @@uncollapsed representation of this (^) @punnet-table is generated:
         - by ./R/gameteFreq_to_Punnet.r
@@ -304,10 +304,13 @@ result_copy = copy(result)
 # Specify indices of each case      @@settings: user settings must match between this and the ones specified in ../R/gameteFrequencies_to_punnet.r
 #                j1,2,i1,2
 case1a_indices = [2,4,6,8] # Case1a: (hTi)&(HTj): wild-type sperm (hTi) meets mutant egg (HTj)
-#              y0, y1, x0, x1
+#              y0, y1, x0, x1         ^ small h must be on the X-axis, i.e. this is in the top right
 case1b_indices = [6,8,2,4] # Case1b: (HTi)&(hTj): mutant sperm (HTi) meets wild-type egg (hTj)
+#                                     ^ big H must be on the X-axis, i.e. this is in the botton left
 case2_indices  = [2,4,2,4] # Case2:  (HTi)&(HTj): mutant sperm (HTi) meets mutant egg (HTj)
+#                                     ^ big H must be on the X axis, i.e. this is on the top left
 case3_indices  = [6,8,6,8] # Case3:  (hTi)&(hTj): wild-type sperm (hTi) meets wild-type egg (hTj)
+#                                     ^ small h must be ont he X-axis, i.e. this is on the bottom right
 case4_indices  = get_caseX_indices_matching_symbol_list(result,match_symbols = ["NA"]) # indices of @result (@punnet-table) elements dead due to T0, T0->Death
 
 
@@ -317,9 +320,9 @@ case4_indices  = get_caseX_indices_matching_symbol_list(result,match_symbols = [
 #                     
 case1a = result[case1a_indices[0]:case1a_indices[1]+1,case1a_indices[2]:case1a_indices[3]+1] 
 
-import pprint
-pprint.pprint(case1a)
-pdb.set_trace()
+# import pprint
+# pprint.pprint(case1a)
+# pdb.set_trace()
 
 # e.g. slice a rectangle from ^ to  ^ (y, row)       , and from ^      to ^ (x, column) 
 #  ...                        2 to  4
