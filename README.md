@@ -18,15 +18,16 @@ All cases are represented as non-X cells in the punnet.
 
     (ii) as characterised by the alleles that represent length of @telomeres.
 
-@@H-locus: consists of two possible alleles: @H and @h. 
+@@H-locus: consists of two possible alleles: @H and @h. You can engineer the homing component to engineer the target locus of of an organism
 
-@@T-locus: 
+@@T-locus: @TODO:@2019-03-01: need to write
+.
 
 @@H-allele / @@h-allele / @@Gene conversion: is dominant for the phenotype of 
 "@@homing", which, when expressed by a @HEG, causes a conversion of any @h alleles 
 in the gamete/diploid cell into an @H allele, at a probability, e, which is commonly 
 referred to as the HEG's "@homing rate". This conversion of it's competing wild-type 
-h allele for occupancy of the @H-locus is exemplary of "selfish gene" behaviour. 
+h allele for occupancy of the @H-locus is exemplary of "selfish gene" behaviour. Keeping in mind, for our study we target telomerase, i.e. telomerase is h.
 
 @@HEG: ...@todo... Acronym for: @@Homing Endonuclease Gene, a selfish gene that 
 simultaneously expresses two phenotypes: (i) @@Homing reaction and (ii) A gene 
@@ -37,7 +38,7 @@ is a phenotype expressed by the @@H-allele, which causes @gene conversion of
 it's wild-type competitor: @h-allele, to change into a @H-allele, which effectively
 @knocks out the @h-allele, turning off it's otherwise expressed phenotype. The 
 @HEG can be genetically engineered to target bespoke genes, and hence turn-off 
-their phenotypic functionality. For purposes of this project, the @h-allele targeted 
+their phenotypic functionality (K/O). For purposes of this project, the @h-allele targeted 
 for @HEG's @knocking-out is assumed to be the @@telomerase gene, whose wild-type
 function is necessary for the supply of @@telomerase enzymes, whose biological 
 role is to prevent the shortening of telomere's within the gametes of all 
@@ -52,7 +53,7 @@ away from the original H-mutant bearing ancestor, critically short telomeres
 - perhaps those that cannot form a key functional-structural unit called T-loops
 - will cause lethality to all further offspring-generations embryos: thus dooming 
 such lines of descendents to extinction. Such h-mutant ancestors would be silently,
-propagating the selfish-@H-alleles within the species' @gene pool, prior to the 
+propagate the selfish-@H-alleles within the species' @gene pool, prior to the 
 shortening-telomeres' reaching such critically short, lethal lengths, in terms 
 of natural selective pressures acting on the telomeres; such silent-propagation
 of these - eventually species-dooming - alleles gives the Telomere Timebomb a 
@@ -60,13 +61,13 @@ means to overcome the wasteful process of natural selection, common to most
 genetic-engineering-oriented approaches to vector control, such as SIT or RIDL. 
 
 
-@@telomeres: for simplicity, we assume every diploid individual carries two 
+@@telomeres: for simplicity, we @assume every diploid individual carries two 
 telomere "alleles" at any time, one originating from said individual's mother 
-and the other from said individual's father. The @T-locus these telomeres occupy 
-is X-allelic, where X represents the number of possible @@telomere-lengths said 
-individual's species' can harbour. @@telomere-length (in generations) is measured 
+and the other from said individual's father. The @T-locus: these telomeres occupy 
+is N-allelic, where N represents the number of possible @@telomere-lengths (N enumerates({0,1,2,3}) ) said 
+individual's species' can harbour. @telomere-length (in generations) is measured 
 in terms of numbers-of-generations of telomere shortening that can be experienced
-by an x--length-telomere before it reach a critically short length, under which 
+by an N-length-telomere before it reaches a critically short length, under which 
 any individual carrying the short-telomere experiances instant death, thus
 removing it, and its alleles, from the species's @gene-pool.
 
@@ -96,8 +97,65 @@ _______________________________________________________
 |hT3[8]  x  |     |     |     |  x  |     |     |     | qj=3
 |_____|_____|_____|_____|_____|_____|_____|_____|_____|
 
+<<<<<<< HEAD
+@@ @TODO:@2019-03-01:Other punnets
+=======
 #
-# pipeline map
+# pipeline map 
+#
+>>>>>>> 775c75423b0bad19633a71847633af846dcbb148
+
+phase 1 (Vic & Eric):  create punnet squares (manually), adn generate a set of equations for phase 2
+
+note: there is an odf equivalent of derivations/dominant lethal - recessive shortening - todo/Det_eqns_assm_dominant-lethal_recessive-shortening.docx
+
+	manually create the punnet square outputting into .csv format
+
+data out:
+
+	derivations/dominant lethal - dominant shortening - done/MW_Det_eqns_310714.docx
+
+	derivations/dominant lethal - recessive shortening - double-check/Det_eqns_assm_dominant-lethal_recessive-shortening.docx
+
+	derivations/dominant lethal - recessive shortening - todo/Det_eqns_assm_dominant-lethal_recessive-shortening.docx
+
+phase 2 (Daniel): collapseGametes_to_collectPunnetGametes.py
+
+	collapses the punnet square
+
+data in: 
+
+	Manually create a new csv for the second modelling assumption (refer to ./R/punnet.csv)
+
+data out: 
+
+	Collapsing new punnet tsv from the input (refer to punnet_collapsed.tsv)
+
+phase 3 (Eric): collapseGames_to_collectPunnetGametes.py 
+
+	represent equations using numpy/sympy
+
+data in: 
+
+	punnet_collapsed.tsv
+
+data out: 
+
+	final_gamete_frequencies.tsv 
+
+phase 3 (Vic): use the output of phase 3 to simulate the time evolution of the mosquito population
+
+data in: 
+
+	final_gamete_frequencies.tsv
+
+data out: 
+
+	/plots/*
+
+
+#
+# pipeline map (old (r))
 #
 
 phase 1 (Vic & Eric):  create punnet squares (manually)
@@ -142,7 +200,13 @@ data out:
 
 phase 3 (Vic & Eric): @todo: determine what scripts perform collapsing
 
-	collapse punnet square
+	@2019-04-09 : it turns out the description for phase 2 is deprecated OR the input data is incorrect // old: collapse punnet square
+
+	@todo: urgent testing hypothesis 1 the LHS of OR:
+		@H1 
+
+	@todo: urgent testing hypothesis 2 on the RHS of OR: 
+		@H2 
 
 data in: 
 
@@ -181,6 +245,8 @@ data out:
 
 	/plots/*
 
+# @H1
+
 
 phase 5: (R/gameteFreq_to_Punnet.r)
 
@@ -194,4 +260,7 @@ data out:
 
 	/plots/*
 
+# Master
 """
+
+##2019-10-21 : Python code 'punnet_to_collpaseGametes.py' can be found in (TelomereTimebomb/Python/punnet_to_collpaseGametes.py)##

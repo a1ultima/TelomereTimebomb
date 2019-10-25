@@ -1,0 +1,127 @@
+Punnett_recessive_shortening.csv
+"","pi=0","pi=1","pi=2","pi=3","qi=0","qi=1","qi=2","qi=3"
+"pj=0",NA,"p1p0/2","p2p0/2","p3p0/2",NA,"p1q0(1-r)(1-e)/2","p1q0(e/2)","p2q0(1-r)(1-e)/2","p2q0(e/2)","p3q0(1-r)(1-e)/2","p3q0(e/2"
+"pj=1","HT0=p0p1/2"
+ HT0=p1p1","HT0=p2p1/2 
+ HT1=p2p1/2","HT0=p3p1/2 
+ HT2=p3p1/2","hT0=p0q1(1-r)(1-e)/2","hT0=p0q1e/2","hT1=q1p1((1-r)(1-e)+r(1-e))/2 
+ HT1=q1p1((1-r)(1-e)+r(1-e))/2 
+ HT0=q1p1e 
+ hT1=p1q2r(1-e)/2 
+ hT2=p1q2(1-r)(1-e)/2 
+ HT1=p1q2((1-r)(1-e)+e)/2","HT2=p1q2r(1-e)/2) 
+ HT0=p1q2e/2 
+ hT3=p1q3(1-r)(1-e)/2
+ hT1=p1q3r(1-e)/2
+ HT1=p1q3(1-r)(1-e)/2
+ HT3=p1q3r(1-e)/2, "HT2=p1q3e/2" ,"HT0=p1q3e/2"
+
+ "pj=2", "HT0=p0p2/2"
+ HT0=p1p2/2 HT1=p1p2/2
+ HT1=p2p2 
+ HT1=p3p2/2
+ HT2=p3p2/2
+ hT0=p0q2(1-r)(1-e)/2
+ hT0=p0q2e/2
+ hT1=p2q1(1-r)(1-e)/2
+ hT2=p2q1r(1-e)/2
+ HT2=p2q1(1-r)(1-e)/2
+ HT1=p2q1(r(1-e)+e)/2
+ HT0=p2q1e/2
+ hT2=p2q2((1-r)(1-e)+r(1-e))/2
+ HT2=p2q2((1-r)(1-e)+r(1-e))/2
+ HT1=p2q2e
+ hT3=p2q3(1-r)(1-e)/2
+ hT2=p2q3r(1-e)/2
+ HT2=p2q3((1-r)(1-e)+e)/2
+ HT3=p2q3r(1-e)/2
+ HT1=p2q3e/2
+
+ "pj=3", "HT0=p0p3/2"
+ HT0=p1p3/2
+ HT2=p1p3/2
+ HT1=p2p3/2
+ HT2=p2p3/2
+ HT2=p3p3
+ hT0=p0q3(1-r)(1-e)/2
+ hT0=p0q3e/2
+ hT1=p3q1(1-r)(1-e)/2
+ hT3=p3q1r(1-e)/2
+ HT3=p3q1(1-r)(1-e)/2
+ HT1=p3q1r(1-e)/2
+ HT0=p3q1e/2
+ HT2=p3q1e/2
+ hT2=p3q2(1-r)(1-e)/2
+ hT3=p3q2r(1-e)/2
+ HT3=p3q2(1-r)(1-e)/2
+ HT2=p3q2(r(1+e)+e)/2
+ HT1=p3q2e/2
+ hT3=p3q3((1-r)(1-e)+r(1-e))/2
+ HT3=p3q3((1-r)(1-e)+r(1-e))/2
+ HT2=p3q3e
+
+ qi=0, NA, "p1q0(1-r(1-e)/2", "p1q0e/2", "p2q0(1-r(1-e)/2" , "p2q0e/2" , "p3q0(1-r(1-e)/2", "p3q0e/2" , NA, "q1q0/2", "q2q0/2", "q3q0/2"
+ qi=1, "HT0=p0q1(1-r)(1-e)/2", "HT0=p0q1e/2"
+ hT1=p1q1((1-r)(1-e)+r(1-e))
+ HT1=p1q1((1-r)(1-e)+r(1-e))
+ HT0=p1q1e*2
+ hT1=p2q1(1-r)(1-e)/2
+ hT2=p2q1r(1-e)/2
+ HT2=p2q1((1-r)(1-e)+e)/2
+ HT1=p2q1r(1-e)/2
+ HT0=p2q1e/2
+ hT1=p3q1(1-r)(1-e)/2
+ hT3=p3q1r(1-e)/2
+ HT3=p3q1(1-r)(1-e)/2
+ HT1=p3q1r(1-e)/2
+ HT0=p3q1e/2
+ HT2=p3q1e/2
+ hT0=q0q1/2
+ hT1=q1q1
+ hT1=q2q1/2
+ hT2=q2q1/2
+ hT1=q3q1/2
+ hT3=q3q1/2
+
+ qi=2, "HT0=p0q2(1-r)(1-e)/2", "HT0=p0q2e/2"
+ hT2=p1q2(1-r)(1-e)/2
+ hT1=p1q2r(1-e)/2
+ HT1=p1q2((1-r)(1-e)+e)/2
+ HT2=p1q2r(1-e)/2
+ HT0=p1q2e/2
+ hT2=p2q2((1-r)(1-e)+r(1-e))
+ HT2=p2q2((1-r)(1-e)+r(1-e))
+ HT1=p2q2e*2
+ hT2=p3q2(1-r)(1-e)/2
+ hT3=p3q2r(1-e)/2
+ HT3=p3q2((1-r)(1-e)+e)/2
+ HT2=p3q2r(1-e)/2
+ HT1=p3q2e/2
+ hT0= q0q2/2
+ hT1=q1q2/2
+ hT2=q1q2/2
+ hT2=q2q2
+ hT2=q3q2/2
+ hT3=q3q2/2
+
+ qi=3, "HT0=p0q3(1-r)(1-e)/2", "HT0=p0q3e/2"
+ hT3=p1q3(1-r)(1-e)/2
+ hT1=p1q3r(1-e)/2
+ HT1=p1q3(1-r)(1-e)/2
+ HT3=p1q3r(1-e)/2
+ HT2=p1q3e/2
+ HT0=p1q3e/2
+ hT3=p2q3(1-r)(1-e)/2
+ hT2=p2q3r(1-e)/2
+ HT2=p2q3((1-r)(1-e)+e)/2
+ HT3=p2q3r(1-e)/2
+ HT1=p2q3e/2
+ hT3=p3q3((1-r)(1-e)+r(1-e))
+ HT3=p3q3((1-r)(1-e)+r(1-e))
+ HT2=p3q3e*2
+ hT0=q0q3/2
+ hT1=q1q3/2
+ hT3=q1q3/2
+ hT2=q2q3/2
+ hT3=q2q3/2
+ hT3=q3q3
