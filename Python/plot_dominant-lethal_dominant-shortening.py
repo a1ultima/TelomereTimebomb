@@ -171,7 +171,7 @@ plt.title("Allele frequency HEG+ vs WT with variable e")
 plt.ylabel("Allele frequency")
 plt.xlabel("mosquito generations")
 plt.legend(custom_lines, list_e_leg)
-plt.savefig("../plots/allele_frequency_dynamics_recessive_lethal_recessive_shortening.png")
+plt.savefig("../plots/Allele_frequency_dynamics_dominant_lethal_dominant_shortening.png", dpi = 600)
 plt.show()
 
 
