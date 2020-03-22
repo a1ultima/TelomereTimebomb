@@ -3,7 +3,8 @@
 ###########
 
 from math import *
-
+import numpy as np
+import pdb 
 #############
 # Functions #
 #############
@@ -32,16 +33,18 @@ def simulate_timeseries( gamete_frequencies, t = 100, e = 0.7, r = 0.5):
 
         """
 
-        p0_next = (2*e*p1*q1 + e*p1*q2 + e*p1*q3 + e*p2*q1 + e*p3*q1 + pow(p1,2) + p1*p2 + p1*p3)/pow((1-p0),2)
-        p1_next = (-e*p1*q1 + e*p1*q2*r + e*p1*q3*r - e*p1*q3 - e*p2*q1*r + e*p2*q1 + 2*e*p2*q2 + e*p2*q3 - e*p3*q1*r + e*p3*q2 + p1*p2 + p1*q1 - p1*q2*r + p1*q2 - p1*q3*r + p1*q3 + pow(p2,2) + p2*p3 + p2*q1*r + p3*q1*r)/pow((1-p0),2)
-        p2_next = (-e*p1*q2*r + e*p1*q3 + e*p2*q1*r - e*p2*q1 - e*p2*q2 + e*p2*q3*r + e*p3*q1 - e*p3*q2*r + e*p3*q2 + 2*e*p3*q3 + p1*p3 + p1*q2*r + p2*p3 - p2*q1*r + p2*q1 + p2*q2 - p2*q3*r + p2*q3 + pow(p3,2) + p3*q2*r)/pow((1-p0),2)
-        p3_next = (-(e - 1)*(p1*q3*r + p2*q3*r - p3*q1*r + p3*q1 - p3*q2*r + p3*q2 + p3*q3))/pow((1-p0),2)
-        q0_next = 0
-        q1_next = (-e*p1*q1 - e*p1*q2*r - e*p1*q3*r + e*p2*q1*r - e*p2*q1 + e*p3*q1*r - e*p3*q1 + p1*q1 + p1*q2*r + p1*q3*r - p2*q1*r + p2*q1 - p3*q1*r + p3*q1 + pow(q1,2) + q1*q2 + q1*q3)/pow((1-p0),2)
-        q2_next = (e*p1*q2*r - e*p1*q2 - e*p2*q1*r - e*p2*q2 - e*p2*q3*r + e*p3*q2*r - e*p3*q2 - p1*q2*r + p1*q2 + p2*q1*r + p2*q2 + p2*q3*r - p3*q2*r + p3*q2 + q1*q2 + pow(q2,2) + q2*q3)/pow((1-p0),2)
-        q3_next = (e*p1*q3*r - e*p1*q3 + e*p2*q3*r - e*p2*q3 - e*p3*q1*r - e*p3*q2*r - e*p3*q3 - p1*q3*r + p1*q3 - p2*q3*r + p2*q3 + p3*q1*r + p3*q2*r + p3*q3 + q1*q3 + q2*q3 + pow(q3,2))/pow((1-p0),2)
+        p0_next = ((-6*e*p0*q1*r + 6*e*p0*q1 - 6*e*p0*q2*r + 6*e*p0*q2 - 6*e*p0*q3*r + 6*e*p0*q3 + 6*e*p1*q0*r + 6*e*p1*q1 + 6*e*p1*q2 + 6*e*p1*q3 + 6*e*p2*q0*r + 6*e*p2*q1 + 6*e*p3*q0*r + 6*e*p3*q1 + 22*p0*p1 + 5*p0*p2 + 5*p0*p3 + 6*p0*q1*r + 6*p0*q2*r + 6*p0*q3*r + 11*pow(p1,2) + 5*p1*p2 + 5*p1*p3 - 6*p1*q0*r + 6*p1*q0 - 6*p2*q0*r + 6*p2*q0 - 6*p3*q0*r + 6*p3*q0)/6)/pow((1-p0),2)
+        p1_next = (e*p0*q1*r - e*p1*q0*r + e*p1*q0 - e*p1*q1 + e*p1*q2*r + e*p1*q3*r - e*p1*q3 - e*p2*q1*r + e*p2*q1 + 2*e*p2*q2 + e*p2*q3 - e*p3*q1*r + e*p3*q2 + p0*p2 - p0*q1*r + p0*q1 + p1*p2 + p1*q0*r + p1*q1 - p1*q2*r + p1*q2 - p1*q3*r + p1*q3 + p2*q1*r + p3*q1*r)/pow((1-p0),2)
+        p2_next = (e*p0*q2*r - e*p1*q2*r + e*p1*q3 - e*p2*q0*r + e*p2*q0 + e*p2*q1*r - e*p2*q1 - e*p2*q2 + e*p2*q3*r + e*p3*q1 - e*p3*q2*r + e*p3*q2 + 2*e*p3*q3 + p0*p3 - p0*q2*r + p0*q2 + p1*p3 + p1*q2*r + p2*q0*r - p2*q1*r + p2*q1 + p2*q2 - p2*q3*r + p2*q3 + p3*q2*r)/pow((1-p0),2)
+        p3_next = (e*p0*q3*r - e*p1*q3*r - e*p2*q3*r - e*p3*q0*r + e*p3*q0 + e*p3*q1*r - e*p3*q1 + e*p3*q2*r - e*p3*q2 - e*p3*q3 - p0*q3*r + p0*q3 + p1*q3*r + p2*q3*r + p3*q0*r - p3*q1*r + p3*q1 - p3*q2*r + p3*q2 + p3*q3)/pow((1-p0),2)
+        q0_next = (-e*p0*q1*r - e*p0*q2*r - e*p0*q3*r + e*p1*q0*r - e*p1*q0 + e*p2*q0*r - e*p2*q0 + e*p3*q0*r - e*p3*q0 + p0*q1*r + p0*q2*r + p0*q3*r - p1*q0*r + p1*q0 - p2*q0*r + p2*q0 - p3*q0*r + p3*q0 + q0*q1 + q0*q2 + q0*q3)/pow((1-p0),2)
+        q1_next = (e*p0*q1*r - e*p0*q1 - e*p1*q0*r - e*p1*q1 - e*p1*q2*r - e*p1*q3*r + e*p2*q1*r - e*p2*q1 + e*p3*q1*r - e*p3*q1 - p0*q1*r + p0*q1 + p1*q0*r + p1*q1 + p1*q2*r + p1*q3*r - p2*q1*r + p2*q1 - p3*q1*r + p3*q1 + q0*q1 + pow(q1,2) + q1*q2 + q1*q3)/pow((1-p0),2)
+        q2_next = (e*p0*q2*r - e*p0*q2 + e*p1*q2*r - e*p1*q2 - e*p2*q0*r - e*p2*q1*r - e*p2*q2 - e*p2*q3*r + e*p3*q2*r - e*p3*q2 - p0*q2*r + p0*q2 - p1*q2*r + p1*q2 + p2*q0*r + p2*q1*r + p2*q2 + p2*q3*r - p3*q2*r + p3*q2 + q0*q2 + q1*q2 + pow(q2,2) + q2*q3)/pow((1-p0),2)
+        q3_next = (e*p0*q3*r - e*p0*q3 + e*p1*q3*r - e*p1*q3 + e*p2*q3*r - e*p2*q3 - e*p3*q0*r - e*p3*q1*r - e*p3*q2*r - e*p3*q3 - p0*q3*r + p0*q3 - p1*q3*r + p1*q3 - p2*q3*r + p2*q3 + p3*q0*r + p3*q1*r + p3*q2*r + p3*q3 + q0*q3 + q1*q3 + q2*q3 + pow(q3,2))/pow((1-p0),2)
 
         return p0_next, p1_next, p2_next, p3_next, q0_next, q1_next, q2_next, q3_next 
+
+
     #
     # Main
     #
@@ -62,6 +65,18 @@ def simulate_timeseries( gamete_frequencies, t = 100, e = 0.7, r = 0.5):
     return timeseries
 
 
+def convert_timeseries_gametes_to_alleles( timeseries_gametes ):
+    """ takes timeseries_gametes (see: "def simulate_timeseries") and generates the H-allele and h-allele frequencies
+
+    """
+
+    timeseries_gametes = np.array(timeseries_gametes)
+
+    H_timeseries = timeseries_gametes[0:,0:4+1].sum(axis=1)
+
+    h_timeseries = timeseries_gametes[0:,4:8+1].sum(axis=1)
+    #pdb.set_trace()
+    return H_timeseries, h_timeseries
 
 def tests( p0, p1, p2, p3, q0, q1, q2, q3, e, r):
     """ tests if:
@@ -94,46 +109,66 @@ def tests( p0, p1, p2, p3, q0, q1, q2, q3, e, r):
 # initial gamete frequencies & parameters
 #
 # params
-e = 0.7 # e, homing rate, e.g. 0.5 means homing occurs in 50% of the zygotes, converting the zygote from h/H to H/H
+e = 0.4 # e, homing rate, e.g. 0.5 means homing occurs in 50% of the zygotes, converting the zygote from h/H to H/H
 r = 0.5 # recombination frequency, e.g. 0.5 means there is a cross-over event that occurs in half the zygotes
 # gamete freq
+list_e = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5]
 p0 = 0.0 # HT0 
 p1 = 0.0 # HT1
 p2 = 0.0 # HT2
-p3 = 0.2 # HT3
+p3 = 0.1 # HT3
 q0 = 0.0 # hT0
 q1 = 0.0 # hT1
 q2 = 0.0 # hT2
-q3 = 0.8 # hT3
+q3 = 0.9 # hT3
 
-#
-# simulate t generations/lifecycles of dynamics, at homing rate e and recombination frequency r
-#
-timeseries_gametes = simulate_timeseries( [p0, p1, p2, p3, q0, q1, q2, q3], t = 20, e = 0.8, r = 0.5)
-
-
-def convert_timeseries_gametes_to_alleles( timeseries_gametes ):
-    """ takes timeseries_gametes (see: "def simulate_timeseries") and generates the H-allele and h-allele frequencies
-
-    """
-
-    timeseries_gametes = np.array(timeseries_gametes)
-
-    H_timeseries = timeseries_gametes[0:,0:4+1].sum(axis=1)
-
-    h_timeseries = timeseries_gametes[0:,4:8+1].sum(axis=1)
-
-    return H_timeseries
-
-
+e_dict = {0.0:0.0, 0.1:0.2, 0.2:0.4, 0.3:0.5, 0.4:0.8, 0.5:1.0}
 
 import matplotlib.pyplot as plt
 
+cmap_H = plt.cm.get_cmap('Blues')
+cmap_h = plt.cm.get_cmap('Oranges')
+cmap_b = plt.cm.get_cmap('gray')
+
 plt.figure()
 
-p = plt.plot(H_timeseries)
+for e in list_e:
+    #
+    # simulate t generations/lifecycles of dynamics, at homing rate e and recombination frequency r
+    #
+    timeseries_gametes = simulate_timeseries( [p0, p1, p2, p3, q0, q1, q2, q3], t = 20, e = e, r = r)
 
+
+    H_timeseries , h_timeseries = convert_timeseries_gametes_to_alleles( timeseries_gametes )
+
+    plt.plot(H_timeseries, color = cmap_b(0.1), label = e, linewidth = 2)
+    plt.plot(H_timeseries, color = cmap_H(e), label = e, linewidth = 1.5)
+    plt.plot(h_timeseries, color = cmap_b(0.1), label = e, linewidth = 2)
+    plt.plot(h_timeseries, color = cmap_h(e), label = e, linewidth = 1.5)      
+
+from matplotlib.lines import Line2D
+custom_lines = [Line2D([0], [0], color = "white",lw = 5),
+                Line2D([0], [0], color = cmap_H(0.0), lw = 5),
+                Line2D([0], [0], color = cmap_H(0.1), lw = 5),
+                Line2D([0], [0], color = cmap_H(0.2), lw = 5),
+                Line2D([0], [0], color = cmap_H(0.3), lw = 5),
+                Line2D([0], [0], color = cmap_H(0.4), lw = 5),
+                Line2D([0], [0], color = cmap_H(0.5), lw = 5),
+                Line2D([0], [0], color = "white",lw = 5),
+                Line2D([0], [0], color = cmap_h(0.0), lw = 5),
+                Line2D([0], [0], color = cmap_h(0.1), lw = 5),
+                Line2D([0], [0], color = cmap_h(0.2), lw = 5),
+                Line2D([0], [0], color = cmap_h(0.3), lw = 5),
+                Line2D([0], [0], color = cmap_h(0.4), lw = 5),
+                Line2D([0], [0], color = cmap_h(0.5), lw = 5)]
+
+plt.title("Allele frequency HEG+ vs WT with different e")
+plt.ylabel("Allele frequency")
+plt.xlabel("mosquito generations")
+plt.legend(custom_lines, ["HEG+", "0.0", "0.1", "0.2", "0.3", "0.4", "0.5", "WT", "0.0", "0.1", "0.2", "0.3", "0.4", "0.5"])
+plt.savefig("../plots/allele_frequency_dynamics_recessive_lethal_recessive_shortening.png")
 plt.show()
+
 
 
 
